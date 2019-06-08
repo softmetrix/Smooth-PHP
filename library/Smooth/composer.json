@@ -1,0 +1,22 @@
+
+{
+    "name": "softmetrix/Smooth",
+    "description": "Turn arrays into smooth functions",
+    "type": "php-library",
+    "keywords": ["interpolation", "cubic", "linear", "nearest"],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Marko Medojevic",
+        "email": "marko.medojevic@softmetrixgroup.com"
+      }
+    ],
+    "require": {
+      "yiisoft/yii2": "*"
+    },
+    "autoload": {
+      "psr-4": {
+        "softmetrix\\Smooth\\": ""
+      }
+    }
+  }

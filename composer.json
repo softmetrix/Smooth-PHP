@@ -1,0 +1,8 @@
+{
+    "name": "softmetrix/smooth-demo",
+    "autoload": {
+        "psr-4": {
+            "softmetrix\\Smooth\\": "library/Smooth"
+        }
+    }
+}
