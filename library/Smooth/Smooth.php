@@ -1,10 +1,11 @@
-<?php 
+<?php
+
 namespace softmetrix\Smooth;
 
 use softmetrix\Smooth\Interpolator\InterpolatorFactory;
 use softmetrix\Smooth\Interpolator\Interpolator;
 
-class Smooth 
+class Smooth
 {
     const METHOD_NEAREST = 'nearest';
     const METHOD_LINEAR = 'linear';
@@ -23,24 +24,28 @@ class Smooth
         $this->interpolator = $interpolatorFactory->create($method, $inputArray, Interpolator::CLIP_CLAMP);
     }
 
-    private function validateInputArray() {
-        if(!$this->validateCount()) { 
+    private function validateInputArray()
+    {
+        if (!$this->validateCount()) {
             throw new \Exception('Input array count must be >= 2');
         }
-        if(!$this->validateIsNumeric()) { 
+        if (!$this->validateIsNumeric()) {
             throw new \Exception('All elements of input array must be numeric');
         }
     }
 
-    private function validateIsNumeric() {
-        return (count($this->inputArray) === count(array_filter($this->inputArray, 'is_numeric')));
+    private function validateIsNumeric()
+    {
+        return count($this->inputArray) === count(array_filter($this->inputArray, 'is_numeric'));
     }
 
-    private function validateCount() {
+    private function validateCount()
+    {
         return count($this->inputArray) >= 2;
     }
 
-    public function val($i) {
+    public function val($i)
+    {
         return $this->interpolator->interpolate($i);
     }
 }

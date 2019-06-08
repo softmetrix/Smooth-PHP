@@ -1,9 +1,10 @@
 <?php
+
 namespace softmetrix\Smooth\Interpolator;
 
 use softmetrix\Smooth\ClipHelper\ClipHelperFactory;
 
-abstract class Interpolator 
+abstract class Interpolator
 {
     const CLIP_CLAMP = 'clamp';
     const CLIP_ZERO = 'zero';
@@ -13,9 +14,8 @@ abstract class Interpolator
     private $clip;
     private $inputArray = [];
     /**
-      *  
-      * @var ClipHelper
-      */
+     * @var ClipHelper
+     */
     private $clipHelper;
 
     public function __construct($inputArray, $clip = self::CLIP_CLAMP)
@@ -25,14 +25,17 @@ abstract class Interpolator
         $this->clipHelper = $clipHelperFactory->create($clip, $inputArray);
     }
 
-    public function setClipMethod($clip) {
+    public function setClipMethod($clip)
+    {
         $this->clip = $clip;
     }
 
-    protected function getClippedInput($i) {
-        if($i >= 0 && $i < count($this->inputArray)) {
+    protected function getClippedInput($i)
+    {
+        if ($i >= 0 && $i < count($this->inputArray)) {
             return $this->inputArray[$i];
-        } 
+        }
+
         return $this->clipHelper->clip($i);
     }
 
