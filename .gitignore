@@ -12,3 +12,4 @@ composer.phar
 /public/packages
 /node_modules
 .env
+/test.php
